@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/WWW-RSSFeed.t
+lib/WWW/RSSFeed.pm

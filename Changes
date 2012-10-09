@@ -1,0 +1,6 @@
+Revision history for Perl extension WWW::RSSFeed.
+
+0.01  Thu May 31 17:07:04 2012
+	- original version; created by h2xs 1.23 with options
+		-b 5.8.0.1 -AX WWW::RSSFeed
+

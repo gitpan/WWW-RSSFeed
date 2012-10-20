@@ -1,12 +1,30 @@
-use 5.008000;
+use 5.006;
+use strict;
+use warnings;
 use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
+
 WriteMakefile(
-    NAME              => 'WWW::RSSFeed',
-    VERSION_FROM      => 'lib/WWW/RSSFeed.pm', # finds $VERSION
-    PREREQ_PM         => {}, # e.g., Module::Name => 1.1
-    ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
-      (ABSTRACT_FROM  => 'lib/WWW/RSSFeed.pm', # retrieve abstract from module
-       AUTHOR         => 'Kunal Jaiswal<kunal.jaiswal@yahoo.com>') : ()),
+    NAME                => 'WWW::RSSFeed',
+    AUTHOR              => q{Jaiswal, Kunal <nicks@cpan.org>},
+    VERSION_FROM        => 'lib/WWW/RSSFeed.pm',
+    ABSTRACT_FROM       => 'lib/WWW/RSSFeed.pm',
+    PREREQ_PM => {
+      'threads'              => 1.75,
+      'threads::shared'      => 1.32,
+      'WWW::Mechanize'       => 1.68,
+      'Domain::PublicSuffix' => 0.04,
+      'XML::RSS'             => 1.49,
+      'HTML::Summary'        => 0.017,
+      'HTML::TreeBuilder'    => 5.03,
+      'HTML::Scrubber'       => 0.09,
+    },
+    ($ExtUtils::MakeMaker::VERSION >= 6.3002
+      ? ('LICENSE'=> 'perl')
+      : ()),
+    PL_FILES            => {},
+    PREREQ_PM => {
+        'Test::More' => 0,
+    },
+    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    clean               => { FILES => 'WWW-RSSFeed-*' },
 );

@@ -1,6 +1,6 @@
 package WWW::RSSFeed;
 
-use 5.008000;
+use 5.006;
 use strict;
 use warnings;
 use threads qw(stringify);
@@ -16,13 +16,6 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-# Items to export into callers namespace by default. Note: do not export
-# names by default without a very good reason. Use EXPORT_OK instead.
-# Do not simply export all your public functions/methods/constants.
-
-# This allows declaration	use WWW::RSSFeed ':all';
-# If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
-# will save memory.
 our %EXPORT_TAGS = ( 'all' => [ qw(
 %feed_content_hr	
 ) ] );
@@ -40,10 +33,14 @@ our %feed_content_hr : shared;
 
 WWW::RSSFeed - Perl extension for creating RSS feeds from website(s).
 
+=head1 VERSION
+
+Version 0.01
+
 =head1 SYNOPSIS
 
-    use WWW::RSSFeed;
     use strict;
+    use WWW::RSSFeed;
 
     my %input = (
                  'url' => 'http://www.yahoo.com/', # required
@@ -76,7 +73,45 @@ for webmasters.
 
 =head1 AUTHOR
 
-Kunal Jaiswal <kunal.jaiswal@yahoo.com>
+Kunal Jaiswal <nicks@cpan.org>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-www-rssfeed at rt.cpan.org>, or through
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WWW-RSSFeed>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
+
+
+
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc WWW::RSSFeed
+
+
+You can also look for information at:
+
+=over 4
+
+=item * RT: CPAN's request tracker (report bugs here)
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=WWW-RSSFeed>
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/WWW-RSSFeed>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/WWW-RSSFeed>
+
+=item * Search CPAN
+
+L<http://search.cpan.org/dist/WWW-RSSFeed/>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -301,14 +336,5 @@ sub __create_rss{
     return $rss->as_string;
 }
 
-1;
+1; # End of WWW::RSSFeed
 __END__
-
-
-
-
-
-
-
-
-
